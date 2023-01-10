@@ -1,24 +1,32 @@
-# README
+# BulletDashboard
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[toc]
 
-Things you may want to cover:
+## Entity Relation
 
-* Ruby version
+```mermaid
+erDiagram
+	Entry ||--|| Style : "has a"
+	Status || --|| Style : belongs
+	Entry |o -- o| Status : "has"
+	Entry{
+		int id PK "Identificador de Entry"
+		TimeStamp new_or_update
+		string content
+		int style FK "Relacion con Style"
+		int status FK "Relacion con Status. Nullable"
+	}
+	Status{
+		int id PK "Identificador de Entry"
+		string Name
+		string bullet
+		string format
+		int sytle FK "Stule en el que esta permitido el status"
+	}
+	Style{
+		int id PK "Identificador de Entry"
+		string name
+		string bullet
+	}
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
